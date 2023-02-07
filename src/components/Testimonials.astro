@@ -1,0 +1,121 @@
+---
+import { t } from "i18next";
+import Quote from "../components/Quote.astro";
+import { Trans } from "astro-i18next/components";
+---
+
+<section class="testimonials" id="testimonials">
+  <h2 class="uppercase">
+    <Trans i18nKey={"testimonials.title"}>
+      <span class="highlight">Testimonials</span> from our customers
+    </Trans>
+  </h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {
+        t("testimonials.people", { returnObjects: true }).map((testimonial) => (
+          <div class="swiper-slide">
+            <Quote
+              quote={testimonial.quote}
+              image={testimonial.image}
+              figcaption={testimonial.name}
+              cite={testimonial.status}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8.4.6/swiper.min.css"
+/>
+
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8.4.6/modules/navigation/navigation.min.css"
+/>
+<script is:inline>
+  const testimonialsSwiper = new Swiper(".swiper", {
+    // Optional parameters
+    loop: true,
+    speed: 1000,
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    autoplay: {
+      delay: 5000,
+    },
+  });
+</script>
+<style>
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonials .swiper {
+    margin: auto 0;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    outline: 1px solid var(--dark-gray);
+    color: var(--dark-gray) !important;
+    border-radius: 50%;
+    width: 80px !important;
+    height: 80px !important;
+    transition: all 0.3s;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 24px !important;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover,
+  .swiper-button-prev:focus-visible,
+  .swiper-button-next:focus-visible {
+    background-color: var(--light-blue);
+    outline: none;
+    color: white !important;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev::after,
+    .swiper-button-next::after,
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover,
+    .swiper-button-prev:focus-visible,
+    .swiper-button-next:focus-visible {
+      display: none;
+      outline: none;
+    }
+  }
+  @media (max-width: 768px) {
+    .expertise {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

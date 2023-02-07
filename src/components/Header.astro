@@ -1,0 +1,193 @@
+---
+export interface Props {}
+
+import { Image } from "@astrojs/image/components";
+import Button from "./Button.astro";
+import { LanguageSelector } from "astro-i18next/components";
+import { t } from "i18next";
+---
+
+<label for="menu" class="visually-hidden">Menu</label>
+<input class="menu" type="checkbox" name="menu" id="menu" />
+<div class="hamburger"></div>
+<div class="hamburger"></div>
+<div class="hamburger"></div>
+<div class="wrapper"></div>
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">
+          <Image src="/logo.webp" height={307} width={934} alt="Raft logo" />
+        </a>
+      </li>
+      <li>
+        <a href="#testimonials">{t("header.links.testimonials")}</a>
+      </li>
+      <li><a href="#expertise">{t("header.links.expertise")}</a></li>
+      <li><a href="#industries">{t("header.links.industries")}</a></li>
+      <li><a href="#about">{t("header.links.about")}</a></li>
+      <li><a href="#team">{t("header.links.team")}</a></li>
+      <li>
+        <a href="#stories">{t("header.links.stories")}</a>
+      </li>
+      <li><a href="/blog">{t("header.links.blog")}</a></li>
+      <li>
+        <Button link href="#contacts">
+          {t("header.links.contacts")}
+        </Button>
+      </li>
+      <li>
+        <LanguageSelector showFlag={true} class="language-selector" />
+      </li>
+    </ul>
+  </nav>
+</header>
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    max-width: 100vw;
+    background-color: hsl(0deg 0% 100% / 90%);
+    z-index: 2;
+    backdrop-filter: blur(3px);
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  img {
+    object-fit: contain;
+    width: fit-content;
+    height: 47px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: large;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: none;
+
+    background: var(--light-blue);
+  }
+  .wrapper {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+  }
+
+  .language-selector {
+    padding: 8px;
+    border: none;
+    box-shadow: inset 0 4px 4px hsl(0deg 0% 0% / 10%);
+  }
+  @media (max-width: 1440px) {
+    ul {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 768px) {
+    ul {
+      justify-content: center;
+    }
+    .menu {
+      position: fixed;
+      display: block;
+      z-index: 4;
+      top: 10px;
+      right: 10px;
+      opacity: 0;
+      width: 50px;
+      height: 50px;
+    }
+    .wrapper {
+      display: block;
+    }
+    input:checked ~ header {
+      right: 0;
+      backdrop-filter: none;
+      background-color: white;
+    }
+    input:checked ~ .wrapper {
+      opacity: 0.3;
+      height: 100vh;
+      width: 100vw;
+    }
+    header {
+      height: 100vh;
+      position: fixed;
+      width: 70vw;
+      right: -100vw;
+      margin: 0 0 0 auto;
+      transition: all 0.5s;
+    }
+    ul {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .hamburger {
+      display: block;
+      width: 33px;
+      height: 4px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 0;
+      border-radius: 3px;
+
+      z-index: 3;
+
+      transform-origin: 4px 0px;
+
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.3s ease-in;
+    }
+
+    .hamburger:nth-of-type(1) {
+      top: 10px;
+    }
+    .hamburger:nth-of-type(2) {
+      top: 20px;
+    }
+    .hamburger:nth-of-type(3) {
+      transform-origin: 0% 100%;
+      top: 30px;
+    }
+
+    input:checked ~ .hamburger {
+      opacity: 1;
+      background: var(--blue);
+    }
+
+    input:checked ~ .hamburger:nth-of-type(1) {
+      transform: rotate(45deg) translate(-1px, 0);
+    }
+
+    input:checked ~ .hamburger:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    input:checked ~ .hamburger:nth-of-type(3) {
+      transform: rotate(-45deg) translate(0, -1px);
+    }
+  }
+</style>

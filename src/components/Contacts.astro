@@ -1,0 +1,160 @@
+---
+import { t } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Image } from "@astrojs/image/components";
+---
+
+<section class="contacts" id="contacts">
+  <h2 class="uppercase">
+    <Trans i18nKey={"contact.title"}>
+      Tell us about your <span class="highlight">problem</span>
+    </Trans>
+  </h2>
+  <div class="wrapper">
+    <div class="support">
+      <span>{t("contact.text")}</span>
+
+      <div class="support-person">
+        <Image {...t("contact.image", {returnObjects: true})} />
+        <div class="support-text">
+          <span class="name">{t("contact.name")}</span>
+          <span>{t("contact.status")}</span>
+        </div>
+      </div>
+      {
+        t("contact.phoneText") && (
+          <a href={`tel:+${t("contact.phoneNumber")}`}>
+            {t("contact.phoneText")}
+          </a>
+        )
+      }
+      <a href="mailto:sales@raftds.com">sales@raftds.com</a>
+    </div>
+
+    <form action="">
+      <label>
+        <span class="visually-hidden">{t("contact.form.name")}</span>
+
+        <input type="text" name="name" placeholder={t("contact.form.name")} />
+      </label>
+
+      <label>
+        <span class="visually-hidden">E-mail</span>
+
+        <input type="email" name="email" placeholder="E-mail" />
+      </label>
+
+      <label>
+        <span class="visually-hidden">{t("contact.form.phone")}</span>
+
+        <input type="tel" name="phone" placeholder={t("contact.form.phone")} />
+      </label>
+
+      <label>
+        <span class="visually-hidden">{t("contact.form.message")}</span>
+
+        <textarea
+          rows="10"
+          name="message"
+          placeholder={t("contact.form.message")}></textarea>
+      </label>
+
+      <input type="submit" value={t("contact.form.submit")} />
+    </form>
+  </div>
+</section>
+
+<style>
+  .contacts {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .contacts h2 {
+    margin-bottom: 8rem;
+    font-weight: 700;
+  }
+
+  .contacts .wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .contacts .support {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: larger;
+    flex: 1;
+  }
+
+  .contacts .support-person {
+    display: flex;
+    gap: 20px;
+  }
+
+  .contacts .support-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .contacts .name {
+    font-weight: bold;
+  }
+
+  .contacts a {
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: var(--light-blue);
+    width: fit-content;
+  }
+
+  .contacts form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .contacts form input,
+  .contacts form textarea {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    font-family: "Manrope", sans-serif;
+    font-size: 1.5rem;
+    border: 1px solid hsl(0, 0%, 10%);
+    border-radius: 4px;
+  }
+
+  .contacts form input[type="submit"] {
+    background-color: var(--light-blue);
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  @media (max-width: 1024px) {
+    .contacts .wrapper {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contacts .support {
+      align-self: center;
+    }
+    .contacts form {
+      padding-right: 2rem;
+    }
+  }
+  @media (max-width: 768px) {
+  }
+</style>

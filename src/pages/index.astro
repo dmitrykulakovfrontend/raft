@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { Image } from "@astrojs/image/components";
+import { changeLanguage } from "i18next";
+import "@fontsource/manrope/800.css";
+import "@fontsource/manrope/700.css";
+import "@fontsource/manrope/400.css";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Expertise from "../components/Expertise.astro";
+import Industries from "../components/Industries.astro";
+import About from "../components/About.astro";
+import Team from "../components/Team.astro";
+import Stories from "../components/Stories.astro";
+import Contacts from "../components/Contacts.astro";
+
+changeLanguage("en");
+---
+
+<Layout title="Raft - Digital Solutions">
+  <Header />
+  <main>
+    <Image
+      class="logo"
+      src="/logo.webp"
+      height={307}
+      width={934}
+      alt="Raft logo"
+    />
+    <Hero />
+    <Testimonials />
+    <Expertise />
+    <Industries />
+    <About />
+    <Team />
+    <Stories />
+    <Contacts />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .logo {
+    width: 150px;
+    height: fit-content;
+    object-fit: contain;
+    margin-top: 1rem;
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+    .logo {
+      display: block;
+      width: 100px;
+      margin-top: 1rem;
+    }
+  }
+</style>

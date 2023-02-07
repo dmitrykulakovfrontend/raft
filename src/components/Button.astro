@@ -1,0 +1,64 @@
+---
+export type Props = Button | Link;
+
+type Link = {
+  link: true;
+  href: string;
+  color?: "light" | "dark";
+  size?: "small" | "medium" | "large";
+};
+type Button = {
+  link?: false;
+  color?: "light" | "dark";
+  size?: "small" | "medium" | "large";
+};
+
+const { link = false, href, color = "dark", size = "medium" } = Astro.props;
+const className = `button ${color} ${size}`;
+---
+
+{
+  link ? (
+    <a href={href} class={className}>
+      <slot />
+    </a>
+  ) : (
+    <button class={className}>
+      <slot />
+    </button>
+  )
+}
+<style>
+  .button {
+    color: white;
+    text-decoration: none;
+  }
+  .light {
+    background-color: var(--light-blue);
+  }
+  .dark {
+    background-color: var(--blue);
+  }
+
+  .medium {
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-size: large;
+  }
+  .large {
+    padding: 1.2rem 2rem;
+    border-radius: 6px;
+    font-size: x-large;
+    border: none;
+  }
+  @media (max-width: 768px) {
+    .medium {
+      padding: 0.8rem 2.5rem;
+      font-size: 1rem;
+    }
+    .large {
+      padding: 1rem 2.5rem;
+      font-size: large;
+    }
+  }
+</style>

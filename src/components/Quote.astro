@@ -1,0 +1,71 @@
+---
+export interface Props {
+  image?: {
+    src: string;
+    alt: string;
+    height: string;
+    width: string;
+    rounded?: boolean;
+    [key: string]: any;
+  };
+  figcaption?: string;
+  cite?: string;
+  quote: string;
+}
+
+import { Image } from "@astrojs/image/components";
+const { image, quote, cite, figcaption } = Astro.props;
+---
+
+<figure>
+  <div>
+    {image && <Image {...image} />}
+    {figcaption && <figcaption>{figcaption}</figcaption>}
+    {cite && <cite>{cite}</cite>}
+  </div>
+
+  <blockquote>
+    <p>
+      {quote}
+    </p>
+  </blockquote>
+</figure>
+
+<style>
+  img[rounded="true"] {
+    border-radius: 50%;
+  }
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-size: 1.25rem;
+  }
+  figure > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  figcaption {
+    font-weight: 800;
+  }
+  blockquote {
+    width: 45%;
+    line-height: 1.5;
+  }
+  cite {
+    font-size: smaller;
+  }
+  @media (max-width: 1024px) {
+    figure {
+      flex-direction: column;
+    }
+    blockquote {
+      width: 80%;
+      line-height: 1.5;
+    }
+  }
+</style>

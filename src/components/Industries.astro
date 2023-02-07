@@ -1,0 +1,39 @@
+---
+import { t } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Image } from "@astrojs/image/components";
+---
+
+<section class="industries" id="industries">
+  <h2 class="uppercase bottom-border">
+    <Trans i18nKey={"industries.title"}>
+      <span class="highlight">Industries</span>
+    </Trans>
+  </h2>
+
+  <Image
+    src={t("industries.image.src")}
+    height={538}
+    width={768}
+    class="industries-image"
+    alt={t("industries.image.alt")}
+  />
+</section>
+
+<style>
+  .industries {
+    min-height: fit-content;
+  }
+  .industries-image {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 768px;
+    object-fit: contain;
+    height: fit-content;
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import { t } from "i18next";
+import { Trans } from "astro-i18next/components";
+---
+
+<section id="expertise">
+  <h2 class="uppercase">
+    <Trans i18nKey={"expertise.title"}>
+      <span class="highlight">Expert</span>ise
+    </Trans>
+  </h2>
+  <div class="expertise">
+    {
+      t("expertise.list", { returnObjects: true }).map((card) => (
+        <div class="expertise-card">
+          {card.map((title) => (
+            <h3 class="expertise-title">{title}</h3>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .expertise {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 3rem;
+    color: #1b1b1b;
+    align-items: center;
+  }
+
+  .expertise-card {
+    width: calc(50% - 40px);
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+    .expertise {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

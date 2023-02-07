@@ -1,0 +1,208 @@
+---
+import { t } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Image } from "@astrojs/image/components";
+const images = [
+  { src: "/imgs/team/team-1.webp", width: "682", height: "475", alt: "" },
+  { src: "/imgs/team/team-3.webp", width: "405", height: "483", alt: "" },
+  { src: "/imgs/team/team-4.webp", width: "604", height: "358", alt: "" },
+  { src: "/imgs/team/team-2.webp", width: "509", height: "311", alt: "" },
+  { src: "/imgs/team/team-5.webp", width: "341", height: "491", alt: "" },
+];
+---
+
+<section class="team" id="team">
+  <div class="background background-left"></div>
+  <div class="background background-top"></div>
+  <div class="background background-bottom"></div>
+  <div class="bottom-border team-info">
+    <div class="team-text">
+      <h2 class="uppercase">
+        <Trans i18nKey={"team.title"}>
+          <span class="highlight">Our</span> team
+        </Trans>
+      </h2>
+      <p>{t("team.text")}</p>
+    </div>
+
+    <img
+      src="/our_team_section.svg"
+      class="team-image"
+      aria-hidden="true"
+      width="531"
+      height="417"
+      alt=""
+    />
+  </div>
+  <ul class="advantages">
+    <li class="advantage">
+      <span class="advantage-value">10</span>
+      <span class="advantage-name">{t("team.years")}</span>
+    </li>
+    <li class="advantage">
+      <span class="advantage-value">30</span>
+      <span class="advantage-name">{t("team.clients")}</span>
+    </li>
+    <li class="advantage">
+      <span class="advantage-value">100</span>
+      <span class="advantage-name">{t("team.engineers")}</span>
+    </li>
+    <li class="advantage">
+      <span class="advantage-value">80</span>
+      <span class="advantage-name">{t("team.projects")}</span>
+    </li>
+  </ul>
+  <ul class="team-images">
+    {
+      images.map((image) => (
+        <li>
+          <Image {...image} />
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="team-images-swiper">
+    <div class="swiper-wrapper">
+      {images.map((image) => <Image class="swiper-slide" {...image} />)}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8.4.6/swiper.min.css"
+/>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8.4.6/modules/pagination/pagination.min.css"
+/>
+<script is:inline>
+  const teamImagesSwiper = new Swiper(".team-images-swiper", {
+    // Optional parameters
+    loop: true,
+    speed: 1000,
+
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+    },
+    spaceBetween: 30,
+  });
+</script>
+
+<style>
+  .team {
+    position: relative;
+    margin-top: 7rem;
+    margin-bottom: 12rem;
+    padding-left: 100px;
+    padding-bottom: 3rem;
+  }
+  .team-info {
+    display: flex;
+    padding-bottom: 0;
+  }
+  .team-text {
+    padding-top: 50px;
+    width: 40%;
+    line-height: 1.5;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .team-image {
+    width: fit-content;
+    object-fit: cover;
+  }
+
+  .advantages {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  .advantage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+  }
+  .advantage::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-image: url("/plus.svg");
+    width: 43px;
+    height: 47px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .advantage-value {
+    font-size: 4rem;
+    font-family: sans-serif;
+  }
+  .advantage-name {
+    font-size: larger;
+    text-align: center;
+  }
+  .team-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    justify-content: center;
+    align-items: center;
+  }
+  .team-images-swiper {
+    display: none;
+    overflow: hidden;
+  }
+  .team-images-swiper img {
+    display: block;
+    height: 300px;
+    object-fit: contain;
+  }
+  .team-images-swiper .swiper-wrapper {
+    align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .team {
+      padding-left: 0;
+    }
+    .team-images {
+      display: none;
+    }
+    .team-images-swiper {
+      display: block;
+    }
+  }
+  @media (max-width: 768px) {
+    .team-image {
+      display: none;
+    }
+    .team-text {
+      width: 100%;
+      margin: 2rem 0;
+      gap: 40px;
+    }
+
+    .advantages {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .advantage {
+      margin-top: 2rem;
+      width: 220px;
+    }
+  }
+</style>

@@ -1,0 +1,212 @@
+{
+  "site": {
+    "description": "Great engineers for building your software"
+  },
+  "header": {
+    "links": {
+      "expertise": "Expertise",
+      "industries": "Industries",
+      "about": "About us",
+      "team": "Team",
+      "testimonials": "Testimonials",
+      "stories": "Case studies",
+      "blog": "Blog",
+      "contacts": "Contact Us"
+    }
+  },
+  "hero": {
+    "title": "Great engineers for building your software",
+    "subtitle": "Raft brought together professionals experienced in software analysis, development and testing. We help clients focus on the core business processes, while we take care of technical teams’ selection and management."
+  },
+  "button": {
+    "contact": "Contact us"
+  },
+  "testimonials": {
+    "title": "<0>Testimonials</0> from our customers",
+    "people": [
+      {
+        "name": "Faisal Islam",
+        "status": "Director of QA",
+        "quote": "It was a pleasure working with the Raft development and testing teams. They started with testing our existing infrastructure, and then led development stream. Raft team introduced the brand new platform for building our clients apps within a few months and it looks and works beautifully.",
+        "image": {
+          "src": "/imgs/companies/AmWell_logo.webp",
+          "height": "64",
+          "width": "140",
+          "alt": "amwell company logo"
+        }
+      },
+      {
+        "name": "Kevin Chynoweth",
+        "status": "Supply Chain Planning Manager",
+        "quote": "I had the pleasure to work with the team on an application development project in 2019, and found them to be very professional, knowledgeable about application development processes and user experiences, and very thorough in paying attention to details. I would recommend them as a great team to build software products.",
+        "image": {
+          "src": "/imgs/companies/Hewlett_Packard_logo.webp",
+          "height": "75",
+          "width": "140",
+          "alt": "Hewlett Packard company logo"
+        }
+      },
+      {
+        "name": "Michelle Perez",
+        "status": "Project/Program Manager",
+        "quote": "Guys from Raft made a great effort to help us achieve soft, friendly and consistent UI, making it easy for our clients to interact with customer service. It's been a fantastic experience to have such a qualified team with us!",
+        "image": {
+          "src": "/imgs/companies/T_mobile_logo.webp",
+          "height": "90",
+          "width": "180",
+          "alt": "T Mobile company logo",
+          "rounded": true
+        }
+      },
+      {
+        "name": "Paul Johnson",
+        "status": "Principal Program Manager",
+        "quote": "The Raft team has done wonderful work, and I could not be happier with what we have achieved in our partnership to reach the MVP product for v1.0. I want to extend a huge thank you for your participation in this effort, all the hard work and flexibility, that led to success of this program.",
+        "image": {
+          "src": "/imgs/companies/Microsoft_logo.webp",
+          "height": "72",
+          "width": "140",
+          "alt": "Microsoft company logo"
+        }
+      }
+    ]
+  },
+  "expertise": {
+    "title": "<0>Expert</0>ise",
+    "list": [
+      ["Web/Mobile Applications Development"],
+      ["Cloud Technologies", "DevOps", " CI/CD"],
+      ["Data Solutions", "ML/AI"],
+      ["Business Analytics", "PM"]
+    ]
+  },
+  "industries": {
+    "title": "<0>Industries</0>",
+    "image": {
+      "src": "/industries_en.webp",
+      "alt": "Industries in which we are working"
+    }
+  },
+  "approach": {
+    "title": "<0>Our</0> approach",
+    "list": [
+      {
+        "title": "Build teams specifically tailored to you",
+        "text": "We analyze your project needs and offer a technical team with all the needed skills, embedded into your processes and infrastructure."
+      },
+      {
+        "title": "Take responsibility for the results",
+        "text": "We don’t just do outsourcing, we accompany the development process and take a lead on people management."
+      },
+      {
+        "title": "Optimal choice of technical solutions",
+        "text": "From basic integrations to bespoke custom applications, our tech experts will leverage the best appropriate stacks and platforms  to help you accelerate your product."
+      },
+      {
+        "title": "Proven and efficient practices ",
+        "text": "In addition to technical expertise, we share our experience in launching products, building teams, and optimizing business processes. We work side by side with you  to help implement best practices."
+      }
+    ]
+  },
+  "team": {
+    "title": "<0>Our</0> team",
+    "text": "Since 2012 RAFT builds digital solutions helping technology companies to reduce cost of development.",
+    "years": "Years",
+    "clients": "Clients",
+    "engineers": "Engineers",
+    "projects": "Projects"
+  },
+  "stories": {
+    "title": "Success <0>Stories</0>",
+    "list": [
+      {
+        "image": {
+          "src": "/imgs/companies/Microsoft_logo.webp",
+          "height": "116",
+          "width": "227",
+          "alt": "Microsoft company logo"
+        },
+        "action": "KPI\\SLAs compliance monitoring",
+        "description": [
+          "Microsoft requested an automated way of tracking Azure-related KPIs and SLAs for meeting the monthly targets. KPIs were based on Azure logs and multiple other data sources. Before implementing the automation, all reporting was done manually.",
+          "We created a data pipeline using C# and .NET that processed different data sources, including Azure operations logs, 10Tb of logs per day. Our team used distributed processing via DataStudio and Scope (internal Microsoft tools) to process this amount of data."
+        ]
+      },
+      {
+        "image": {
+          "src": "/imgs/companies/AmWell_logo.webp",
+          "height": "123",
+          "width": "244",
+          "alt": "amwell company logo"
+        },
+        "action": "Introducing brand new application",
+        "description": [
+          "American Well needed technical expertise for developing Patient Concierge Health Assistant and Mobile Applications. We shaped the required team extensions, developed end-to-end features, established advanced security to support new features, redesigned existing architecture, created a customer feedback processing module, and built a complete mobile customer application."
+        ]
+      },
+      {
+        "image": {
+          "src": "/imgs/companies/Ultrasound_company_logo.webp",
+          "height": "220",
+          "width": "221",
+          "alt": "company logo"
+        },
+        "action": "Portable ultrasound solution",
+        "description": [
+          "The client is a world leader in portable ultrasound devices for home use.",
+          "Raft engineers helped to significantly improve the user experience for the company’s devices by building a mobile application that is tightly integrated into client’s ecosystem. The app allows providers to get patients’ ultrasound results in real -time while consulting them online. Moms could control their babies’ health without leaving their homes now"
+        ]
+      },
+      {
+        "image": {
+          "src": "/imgs/companies/Truffle_logo.webp",
+          "height": "173",
+          "width": "201",
+          "alt": "Truffle company logo"
+        },
+        "action": "Blockchain platform automatization",
+        "description": [
+          "Blockchain platform for cryptocurrency trading and asset tokenization.",
+          "The RAFT team has established a continuous automated testing process to speed up the release process. For this, a set of E2E tests was developed, as well as testing the blockchain core for fault tolerance."
+        ]
+      },
+      {
+        "image": {
+          "src": "/imgs/companies/Gyre_logo.webp",
+          "height": "151",
+          "width": "206",
+          "alt": "Gyre company logo"
+        },
+        "action": "Data processing for streaming platform",
+        "description": [
+          "Gyre, an early-stage startup building a platform for streamers’ collaboration, needed a team of developers experienced in data processing, building web crawlers with Python and Spark, and working with social networks’ APIs. Our team helped Gyre build a team of senior developers and architects to design and launch their MVP. We designed and implemented a Youtube streaming crawler from end to end and developed storage and incremental data processing pipeline."
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Tell us about your <0>problem</0>",
+    "text": "I will help to find a team for your project!",
+    "name": "Dan",
+    "status": "Sales Executive",
+    "phoneText": "",
+    "phoneNumber": "",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "message": "Message text",
+      "submit": "Submit"
+    },
+    "image": {
+      "src": "/imgs/contacts/dan.webp",
+      "alt": "Dan photo",
+      "width": "188",
+      "height": "134"
+    }
+  },
+  "footer": {
+    "location": "1812 Broadway, Seattle, WA 98122",
+    "LinkedIn": true,
+    "companyInfo": []
+  }
+}

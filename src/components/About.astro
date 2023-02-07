@@ -1,0 +1,80 @@
+---
+import { t } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Image } from "@astrojs/image/components";
+---
+
+<section id="about">
+  <h2 class="uppercase bottom-border">
+    <Trans i18nKey={"approach.title"}>
+      <span class="highlight">Our</span> approach
+    </Trans>
+  </h2>
+  <ol class="approach-list">
+    {
+      t("approach.list", { returnObjects: true }).map((approach) => (
+        <li class="approach-list-item">
+          <dl class="approach">
+            <dt class="approach-termin">{approach.title}</dt>
+            <dd class="approach-definition">{approach.text}</dd>
+          </dl>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .approach-list {
+    list-style: decimal-leading-zero;
+    font-size: 1.5rem;
+    margin-top: 4rem;
+  }
+  .approach-list-item {
+    margin-top: 4rem;
+    list-style-position: inside;
+  }
+  .approach-list-item::marker {
+    font-weight: 600;
+  }
+  .approach-list-item::before {
+    content: "/";
+    color: var(--light-blue);
+    margin-left: -3.5rem;
+    font-weight: 700;
+  }
+  .approach {
+    display: flex;
+    justify-content: space-between;
+  }
+  .approach-termin {
+    font-weight: 700;
+    margin-bottom: auto;
+    margin-left: 4rem;
+  }
+  .approach-definition {
+    font-size: large;
+    max-width: 50%;
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+    .approach-list-item {
+    }
+    .approach {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .approach-termin {
+      margin-left: 0;
+      margin-top: 2rem;
+    }
+    .approach-definition {
+      max-width: 100%;
+    }
+  }
+</style>

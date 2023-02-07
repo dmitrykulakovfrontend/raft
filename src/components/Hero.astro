@@ -1,0 +1,68 @@
+---
+import { t } from "i18next";
+import Button from "./Button.astro";
+import { Image } from "@astrojs/image/components";
+---
+
+<section class="hero">
+  <div class="hero-text">
+    <h1 class="visually-hidden">Raft</h1>
+    <h2>{t("hero.title")}</h2>
+    <p>{t("hero.subtitle")}</p>
+    <Button link={true} href={"#contacts"} color={"light"} size={"large"}>
+      {t("button.contact")}
+    </Button>
+  </div>
+  <Image
+    src="/background1.webp"
+    height={761}
+    width={905}
+    class="background-image"
+    alt="Development process"
+  />
+</section>;
+
+<style>
+  .hero {
+    display: flex;
+  }
+  .hero-text {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    line-height: 1.25;
+    gap: 30px;
+  }
+  .hero-text p {
+    width: 80%;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .background-image {
+    width: 50%;
+    height: fit-content;
+    object-fit: contain;
+    margin-top: 2rem;
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+    }
+    .hero-text {
+      width: 100%;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      width: 100%;
+    }
+    .background-image {
+      width: 280px;
+      height: fit-content;
+      margin-top: 6rem;
+    }
+  }
+</style>

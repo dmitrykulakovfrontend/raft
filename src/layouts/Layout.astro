@@ -1,0 +1,186 @@
+---
+export interface Props {
+  title: string;
+}
+
+import { t } from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={t("site.description")} />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <title>{title}</title>
+    <HeadHrefLangs />
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+        --light-blue: hsl(223, 100%, 50%);
+        --blue: hsl(223, 100%, 40%);
+        --dark-gray: hsl(0, 0%, 60%);
+        --gray: hsl(0, 0%, 84%);
+        --light-gray: hsl(0, 0%, 96%);
+        --black: hsl(245, 70%, 5%);
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-color: white;
+        min-height: 100vh;
+        scroll-behavior: smooth;
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--light-blue) rgba(0, 0, 0, 0.099);
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px; /* for vertical scrollbars */
+        height: auto; /* for horizontal scrollbars */
+        z-index: 33;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.099);
+        z-index: 33;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--light-blue);
+        border-radius: 30px;
+        z-index: 33;
+      }
+      body {
+        min-height: 100vh;
+        font-family: "Manrope", sans-serif;
+      }
+      body > * {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+      }
+      .swiper-pagination-bullets {
+        bottom: 50px !important;
+      }
+      .swiper-pagination-bullet {
+        width: 12px !important;
+        height: 12px !important;
+        background-color: transparent !important;
+        border: 2px solid hsl(0, 0%, 100%) !important;
+      }
+      .swiper-pagination-bullet-active {
+        background-color: white !important;
+      }
+      h2 {
+        font-size: 3.5rem;
+        font-weight: 800;
+      }
+      h3 {
+        font-weight: 800;
+        font-size: 1.75rem;
+        margin-bottom: 10px;
+      }
+      section {
+        margin: 1.5rem 0;
+        min-height: 80vh;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .highlight {
+        color: var(--light-blue);
+      }
+      .visually-hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+      .bottom-border {
+        border-bottom: 1px solid var(--gray);
+        padding-bottom: 1rem;
+      }
+
+      /* gray lines around */
+      .background {
+        background-color: var(--light-gray);
+        position: absolute;
+        left: calc(((100% - 100vw) / 2) - 8px);
+        z-index: -1;
+      }
+      .background-top {
+        top: -100px;
+        width: 100vw;
+        height: 100px;
+      }
+      .background-left {
+        top: 0;
+        width: 100px;
+        height: 100%;
+      }
+      .background-right {
+        top: 0;
+        width: 100px;
+        height: 100%;
+        right: calc(((100% - 100vw) / 2) + 8px);
+        left: auto;
+      }
+      .background-bottom {
+        bottom: -100px;
+        width: 100vw;
+        height: 100px;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+      @media (max-width: 1024px) {
+        h2 {
+          font-size: 2.5rem;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+        .background-left,
+        .background-right {
+          display: none;
+        }
+      }
+      @media (max-width: 768px) {
+        body > * {
+          padding: 0 1.5rem 0 3rem;
+        }
+        h2 {
+          font-weight: 700;
+          font-size: xx-large;
+          line-height: 1.3;
+        }
+      }
+      @media (max-width: 425px) {
+        body > * {
+          padding: 0 1rem 0 2rem;
+        }
+      }
+    </style>
+  </body>
+</html>
+

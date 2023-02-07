@@ -1,0 +1,84 @@
+---
+import { t } from "i18next";
+import { Trans } from "astro-i18next/components";
+import { Image } from "@astrojs/image/components";
+---
+
+<section class="stories" id="stories">
+  <div class="background background-right"></div>
+  <div class="background background-top"></div>
+  <h2 class="uppercase">
+    <Trans i18nKey={"stories.title"}>
+      Success <span class="highlight">Stories</span>
+    </Trans>
+  </h2>
+  <ul class="stories-list">
+    {
+      t("stories.list", { returnObjects: true }).map((story) => (
+        <li class="story">
+          <Image {...story.image} />
+          <h3>{story.action}</h3>
+          <div>
+            {story.description.map((text) => (
+              <p>{text}</p>
+            ))}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .stories {
+    position: relative;
+    padding-top: 4rem;
+    padding-right: 5rem;
+  }
+
+  .story {
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 4rem auto;
+    border-bottom: 1px solid var(--gray);
+  }
+  .story > * {
+    flex: 1 1 0px;
+  }
+  .story img {
+    height: fit-content;
+    max-width: 300px;
+    z-index: -1;
+  }
+  .story h3 {
+    font-size: x-large;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .story div {
+    max-width: 50%;
+  }
+  .story p {
+    font-size: large;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 1024px) {
+    .story {
+      flex-direction: column;
+      align-items: center;
+    }
+    .story h3 {
+      max-width: 100%;
+      align-self: flex-start;
+    }
+    .story div {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+  }
+</style>
