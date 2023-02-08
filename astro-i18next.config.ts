@@ -4,7 +4,7 @@ const config: AstroI18nextConfig = {
   defaultLocale: "en",
   locales: ["en", "ru"],
   i18nextServer: {
-    debug: true,
+    debug: process.env.NODE_ENV !== "production",
     backend: {
       loadPath: "./public/locales/{{lng}}/{{ns}}.json",
     },
